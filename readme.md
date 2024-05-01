@@ -1,12 +1,12 @@
 # obj-reuse
 
-This package process an object to reuse existing references when those are unchanged. It is useful when the data producer provides a new object for each update but the data consumer relies on shallow testing for optimization, such as [React's `memo` function](https://react.dev/reference/react/memo).
+This package processes objects to reuse existing references when those are unchanged. It is useful when the data producer provides a new object for each update but the data consumer relies on shallow testing for optimization, such as [React's `memo` function](https://react.dev/reference/react/memo).
 
 It has support for the following objects:
 
 - `Array`
 - `Object` (including objects with a null prototype)
-- `Map` (reusing the value only)
+- `Map` (reusing the value only as it is impossible to tell which key was which)
 - `Date`
 - `RegExp`
 - `URL`
@@ -37,7 +37,7 @@ let updated = {
 };
 
 let result = reuse(updated, old);
-// Here 'old.foo' was left unchanged and thus reused, meaning 'result.foo === old.foo'
+// Here 'updated.foo' was left unchanged and thus reused, meaning 'result.foo === old.foo'
 
 let result = reuse(updated, old, (updated, old) => {
   // Logic for custom reuse

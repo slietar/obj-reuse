@@ -104,25 +104,3 @@ export function reuse(updated, old, fallbackReuse) {
 }
 
 export default reuse;
-
-
-let s = Symbol();
-
-let x = {
-  foo: 42,
-  bar: [1, 6],
-  z: new Date(),
-  [s]: 8
-};
-
-let y = {
-  foo: 42,
-  bar: [1, 6],
-  z: new Date(),
-  [s]: 8
-};
-
-let yp = reuse(y, x);
-
-console.log(yp);
-console.log(yp === x); // true

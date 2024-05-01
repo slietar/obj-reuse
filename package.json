@@ -1,12 +1,12 @@
 {
   "name": "obj-reuse",
   "version": "0.0.0",
-  "description": "...",
+  "description": "Package which processes objects to reuse existing references when those are unchanged",
   "main": "index.js",
   "type": "module",
   "license": "EUPL-1.2",
   "repository": {
     "type": "git",
-    "url": "https://github.com/slietar/obj-repr.git"
+    "url": "git+https://github.com/slietar/obj-reuse.git"
   }
 }
