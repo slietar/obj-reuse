@@ -1,6 +1,6 @@
 {
   "name": "obj-reuse",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Package which processes objects to reuse existing references when those are unchanged",
   "main": "index.js",
   "type": "module",
