@@ -4,8 +4,14 @@ This package process an object to reuse existing references when those are uncha
 
 It has support for the following objects:
 
-- objects and arrays
-- `Map`
+- `Array`
+- `Object` (including objects with a null prototype)
+- `Map` (reusing the value only)
+- `Date`
+- `RegExp`
+- `URL`
+
+In the case of partial reuse, the new object provided as input is not used but a copy is created instead.
 
 
 ## Installation
@@ -31,5 +37,13 @@ let updated = {
 };
 
 let result = reuse(updated, old);
-// Both 'updated' and 'old' were left unchanged, however 'old.foo' was reused, meaning 'result.foo === old.foo'
+// Here 'old.foo' was left unchanged and thus reused, meaning 'result.foo === old.foo'
+
+let result = reuse(updated, old, (updated, old) => {
+  // Logic for custom reuse
+  // ...
+
+  // By default, skip reuse entirely
+  return updated;
+});
 ```
